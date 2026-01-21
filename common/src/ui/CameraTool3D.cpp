@@ -243,13 +243,13 @@ public:
     else
     {
       delta = delta
-              + static_cast<float>(inputState.mouseDX()) * panSpeedH(m_camera)
+              - static_cast<float>(inputState.mouseDX()) * panSpeedH(m_camera)
                   * m_camera.right();
       delta =
         delta
-        + static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
+        - static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
     }
-    m_camera.moveBy(-delta);
+    m_camera.moveBy(delta);
     return true;
   }
 
