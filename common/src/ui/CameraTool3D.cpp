@@ -235,7 +235,7 @@ public:
     {
       delta = delta
               + static_cast<float>(inputState.mouseDX()) * panSpeedH(m_camera)
-                  * m_camera.right();
+                  * m_camera.left();
       delta = delta
               + static_cast<float>(inputState.mouseDY()) * -moveSpeed(m_camera, altMove)
                   * m_camera.direction();
@@ -244,12 +244,12 @@ public:
     {
       delta = delta
               + static_cast<float>(inputState.mouseDX()) * panSpeedH(m_camera)
-                  * m_camera.right();
+                  * m_camera.left();
       delta =
         delta
-        + static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
+        + static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.down();
     }
-    m_camera.moveBy(-delta);
+    m_camera.moveBy(delta);
     return true;
   }
 
