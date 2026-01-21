@@ -58,14 +58,14 @@ bool shouldPan(const InputState& inputState)
 {
   return (
     inputState.mouseButtonsPressed(MouseButtons::Middle)
-    && (inputState.modifierKeysPressed(ModifierKeys::None) || inputState.modifierKeysPressed(ModifierKeys::Alt)));
+    && (inputState.modifierKeysPressed(ModifierKeys::None) || inputState.modifierKeysPressed(ModifierKeys::Shift)));
 }
 
 bool shouldOrbit(const InputState& inputState)
 {
   return (
-    inputState.mouseButtonsPressed(MouseButtons::Right)
-    && inputState.modifierKeysPressed(ModifierKeys::Alt));
+    inputState.mouseButtonsPressed(MouseButtons::Middle)
+    && inputState.modifierKeysPressed(ModifierKeys::None));
 }
 
 bool shouldAdjustFlySpeed(const InputState& inputState)
@@ -249,7 +249,7 @@ public:
         delta
         + static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
     }
-    m_camera.moveBy(delta);
+    m_camera.moveBy(-delta);
     return true;
   }
 
