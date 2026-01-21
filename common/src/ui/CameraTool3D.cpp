@@ -247,7 +247,7 @@ public:
                   * m_camera.right();
       delta =
         delta
-        - static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
+        + static_cast<float>(inputState.mouseDY()) * panSpeedV(m_camera) * m_camera.up();
     }
     m_camera.moveBy(delta);
     return true;
